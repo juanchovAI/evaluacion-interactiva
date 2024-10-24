@@ -12,6 +12,21 @@ import Grid from "@mui/joy/Grid";
 import perfil from "../public/usuario.png";
 import Button from "@mui/joy/Button";
 
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
+
+import { ReactSketchCanvas } from "react-sketch-canvas";
+import { useRef } from "react";
+
+import Imgofia from "/sofia.jpg";
+
+import ImgSofiaPintando from "/sofiaPintando.jpg";
+
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -44,6 +59,11 @@ function a11yProps(index) {
 export default function App() {
   const [value, setValue] = React.useState(0);
 
+  const canvasRef = useRef(null);
+  const canvas2Ref = useRef(null);
+  const canvas = canvasRef.current;
+  const canvas2 = canvas2Ref.current;
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -64,74 +84,77 @@ export default function App() {
           aria-label="basic tabs example"
         >
           <Tab label="Inicio" {...a11yProps(0)} />
-          <Tab label="Actividad 1" {...a11yProps(1)} />
-          <Tab label="Actividad 2" {...a11yProps(2)} />
+          <Tab label="La granja de Sofía" {...a11yProps(1)} />
+          <Tab label="Actividad 1" {...a11yProps(2)} />
+          <Tab label="Actividad 2" {...a11yProps(3)} />
+          <Tab label="Actividad 3" {...a11yProps(4)} />
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={0}>
-        <Typography level="h2" sx={{ color: "#4379F2" }}>
-          OBJETIVO DE APRENDIZAJE (DESEMPEÑOS):{" "}
-        </Typography>
+        {/* <Typography level="h2" sx={{ color: "#4379F2" }}>
+      OBJETIVO DE APRENDIZAJE (DESEMPEÑOS):{" "}
+     </Typography>
 
-        <Typography sx={{ mt: "1rem" }}>
-          Plantear y resolver Situaciones Problema de las matemáticas y otras
-          ciencias aplicando modelos de Funciones Lineales o Cuadráticos.
-        </Typography>
+     <Typography sx={{ mt: "1rem" }}>
+      Plantear y resolver Situaciones Problema de las matemáticas y otras
+      ciencias aplicando modelos de Funciones Lineales o Cuadráticos.
+     </Typography>*/}
         <Grid container spacing={5} sx={{ mt: "1.5rem" }}>
-          <Grid size={6}>
-            <Typography level="h3" sx={{ color: "#507687" }}>
-              TEMAS ESPECÍFICOS A DESARROLLAR:{" "}
+          {/*
+      <Grid size={6}>
+        <Typography level="h3" sx={{ color: "#507687" }}>
+          TEMAS ESPECÍFICOS A DESARROLLAR:{" "}
+        </Typography>
+
+        <Typography level="title-lg" sx={{ mt: "1.5rem" }}>
+          FUNCIONES:
+        </Typography>
+
+        <List sx={{ paddingBlock: "0.5rem" }}>
+          <ListItem>
+            <ListItemDecorator>🔵</ListItemDecorator>
+            <Typography>
+              Función cuadrática, ecuaciones de segundo grado con una
+              incógnita.
             </Typography>
+          </ListItem>
+          <ListItem>
+            <ListItemDecorator>🔵</ListItemDecorator>
+            <Typography>Función exponencial</Typography>
+          </ListItem>
 
-            <Typography level="title-lg" sx={{ mt: "1.5rem" }}>
-              FUNCIONES:
+          <ListItem>
+            <ListItemDecorator>🔵</ListItemDecorator>
+            <Typography>Función logarítmica</Typography>
+          </ListItem>
+        </List>
+
+        <Typography level="title-lg" sx={{ mt: "1.5rem" }}>
+          PRESABERES REQUERIDOS:
+        </Typography>
+
+        <List sx={{ paddingBlock: "0.5rem" }}>
+          <ListItem>
+            <ListItemDecorator>🔵</ListItemDecorator>
+            <Typography>Operaciones con números reales.</Typography>
+          </ListItem>
+          <ListItem>
+            <ListItemDecorator>🔵</ListItemDecorator>
+            <Typography>Resolución de ecuaciones.</Typography>
+          </ListItem>
+
+          <ListItem>
+            <ListItemDecorator>🔵</ListItemDecorator>
+            <Typography>
+              Simplificación de expresiones algebraicas.
             </Typography>
-
-            <List sx={{ paddingBlock: "0.5rem" }}>
-              <ListItem>
-                <ListItemDecorator>🔵</ListItemDecorator>
-                <Typography>
-                  Función cuadrática, ecuaciones de segundo grado con una
-                  incógnita.
-                </Typography>
-              </ListItem>
-              <ListItem>
-                <ListItemDecorator>🔵</ListItemDecorator>
-                <Typography>Función exponencial</Typography>
-              </ListItem>
-
-              <ListItem>
-                <ListItemDecorator>🔵</ListItemDecorator>
-                <Typography>Función logarítmica</Typography>
-              </ListItem>
-            </List>
-
-            <Typography level="title-lg" sx={{ mt: "1.5rem" }}>
-              PRESABERES REQUERIDOS:
-            </Typography>
-
-            <List sx={{ paddingBlock: "0.5rem" }}>
-              <ListItem>
-                <ListItemDecorator>🔵</ListItemDecorator>
-                <Typography>Operaciones con números reales.</Typography>
-              </ListItem>
-              <ListItem>
-                <ListItemDecorator>🔵</ListItemDecorator>
-                <Typography>Resolución de ecuaciones.</Typography>
-              </ListItem>
-
-              <ListItem>
-                <ListItemDecorator>🔵</ListItemDecorator>
-                <Typography>
-                  Simplificación de expresiones algebraicas.
-                </Typography>
-              </ListItem>
-              <ListItem>
-                <ListItemDecorator>🔵</ListItemDecorator>
-                <Typography>Factorización.</Typography>
-              </ListItem>
-            </List>
-          </Grid>
+          </ListItem>
+          <ListItem>
+            <ListItemDecorator>🔵</ListItemDecorator>
+            <Typography>Factorización.</Typography>
+          </ListItem>
+        </List>
+      </Grid> */}
           <Grid
             size={6}
             sx={{
@@ -176,22 +199,40 @@ export default function App() {
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
         <Typography level="h3" sx={{ color: "#507687" }}>
-          <b>Actividad 1:</b> Modelando el crecimiento de una bacteria
+          <b>La granja de Sofía</b>
         </Typography>
+        <Box sx={{ display: "flex", gap: "20px" }}>
+          <img
+            src={Imgofia}
+            alt="Imagen de Sofía"
+            style={{
+              height: "300px",
+            }}
+          />
 
-        <Typography sx={{ mt: "1rem" }}>
-          En cierta población del Pacífico Colombiano un grupo de científicos
-          acaba de descubrir una nueva especie de bacteria que se estaría
-          reproduciendo muy rápido y podría causar muchas enfermedades en la
-          población. Estudios recientes revelaron que esta especie se reproduce
-          cada hora partiéndose en dos (bipartición) y que inicialmente todo
-          habría comenzado con una bacteria.{" "}
-        </Typography>
+          <Typography sx={{ mt: "0rem" }}>
+            Sofía está pensando en cultivar hortalizas en Chocontá porque dicen
+            que el terreno es muy bueno, pero que hay que tener cuidado porque
+            lo frecuentan animales que se las comen, deterioran el terreno y
+            hacen hendiduras en las platabandas. Ella solo dispone de 140 metros
+            de malla para encerrar el terreno que va a usar para el cultivo, que
+            debe tener forma rectangular. Así que ella necesita determinar las
+            dimensiones del cultivo que se puede cercar con esa cantidad de
+            malla. ​{" "}
+          </Typography>
+        </Box>
 
-        <ol>
+        <Box sx={{ background: "#FFF1DB", padding: "15px", mt: "2rem" }}>
+          <Typography>
+            <span style={{ marginRight: "10px" }}>💡</span> Recuerda cómo se
+            calcula el perímetro y el área de un rectángulo.
+          </Typography>
+        </Box>
+
+        {/* <ol>
           <li>
             <Typography>
-              Completa la siguiente tabla con el propósito de comprender y
+            🟢 Completa la siguiente tabla con el propósito de comprender y
               predecir cuánto crecerá la población de bacterias a medida que
               pasen las horas:{" "}
             </Typography>
@@ -208,184 +249,6 @@ export default function App() {
               {" "}
               Comportamiento preliminar del crecimiento de la bacterias
             </h5>
-            <table>
-              <thead>
-                <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td
-                    style={{
-                      width: "200px",
-                      textAlign: "center",
-                      border: "1px grey solid",
-                    }}
-                  >
-                    <Typography>Tiempo (Horas)</Typography>
-                  </td>
-                  <td
-                    style={{
-                      width: "15px",
-                      textAlign: "center",
-                      border: "1px grey solid",
-                    }}
-                  >
-                    0
-                  </td>
-                  <td
-                    style={{
-                      width: "15px",
-                      textAlign: "center",
-                      border: "1px grey solid",
-                    }}
-                  >
-                    1
-                  </td>
-                  <td
-                    style={{
-                      width: "15px",
-                      textAlign: "center",
-                      border: "1px grey solid",
-                    }}
-                  >
-                    2
-                  </td>
-                  <td
-                    style={{
-                      width: "15px",
-                      textAlign: "center",
-                      border: "1px grey solid",
-                    }}
-                  >
-                    3
-                  </td>
-                  <td
-                    style={{
-                      width: "15px",
-                      textAlign: "center",
-                      border: "1px grey solid",
-                    }}
-                  >
-                    4
-                  </td>
-                  <td
-                    style={{
-                      width: "15px",
-                      textAlign: "center",
-                      border: "1px grey solid",
-                    }}
-                  >
-                    5
-                  </td>
-                  <td
-                    style={{
-                      width: "15px",
-                      textAlign: "center",
-                      border: "1px grey solid",
-                    }}
-                  >
-                    6
-                  </td>
-                  <td
-                    style={{
-                      width: "15px",
-                      textAlign: "center",
-                      border: "1px grey solid",
-                    }}
-                  >
-                    7
-                  </td>
-                  <td
-                    style={{
-                      width: "15px",
-                      textAlign: "center",
-                      border: "1px grey solid",
-                    }}
-                  >
-                    8
-                  </td>
-                </tr>
-                <tr>
-                  <td
-                    style={{
-                      width: "200px",
-                      textAlign: "center",
-                      border: "1px grey solid",
-                    }}
-                  >
-                    Número de bacterias
-                  </td>
-                  <td
-                    style={{
-                      width: "15px",
-                      textAlign: "center",
-                      border: "1px grey solid",
-                    }}
-                  >
-                    1
-                  </td>
-                  <td>
-                    <input
-                      type="text"
-                      style={{ width: "15px", textAlign: "center" }}
-                    />
-                  </td>
-                  <td>
-                    <input
-                      type="text"
-                      style={{ width: "15px", textAlign: "center" }}
-                    />
-                  </td>
-                  <td>
-                    <input
-                      type="text"
-                      style={{ width: "15px", textAlign: "center" }}
-                    />
-                  </td>
-                  <td>
-                    <input
-                      type="text"
-                      style={{ width: "15px", textAlign: "center" }}
-                    />
-                  </td>
-                  <td>
-                    <input
-                      type="text"
-                      style={{ width: "15px", textAlign: "center" }}
-                    />
-                  </td>
-                  <td>
-                    <input
-                      type="text"
-                      style={{ width: "15px", textAlign: "center" }}
-                    />
-                  </td>
-                  <td>
-                    <input
-                      type="text"
-                      style={{ width: "15px", textAlign: "center" }}
-                    />
-                  </td>
-                  <td>
-                    <input
-                      type="text"
-                      style={{ width: "15px", textAlign: "center" }}
-                    />
-                  </td>
-                </tr>
-              </tbody>
-            </table>
           </div>
 
           <li style={{ marginTop: "50px" }}>
@@ -393,10 +256,6 @@ export default function App() {
           </li>
           <Input color="primary" size="sd" variant="outlined" />
 
-          <li style={{ marginTop: "15px" }}>
-            <Typography>¿Cuántas bacterias habrá a los dos días?</Typography>
-          </li>
-          <Input color="primary" size="sd" variant="outlined" />
           <li style={{ marginTop: "15px" }}>
             <Typography>
               Los biólogos calculan que, si la población de bacterias crece
@@ -407,32 +266,309 @@ export default function App() {
           </li>
           <Input color="primary" size="sd" variant="outlined" />
           <li style={{ marginTop: "15px" }}>
-            <Typography>
-              Escribe una expresión algebraica o fórmula matemática que le
-              permita hallar la cantidad de bacterias en función del tiempo (en
-              horas), es decir, la cantidad de bacterias para cualquier hora.
-              Con los datos obtenidos, bosqueja un gráfico que represente esta
-              situación.
-            </Typography>
+            <Typography></Typography>
           </li>
           <Input color="primary" size="sd" variant="outlined" />
-        </ol>
+        </ol> */}
       </CustomTabPanel>
       <CustomTabPanel value={value} index={2}>
         <Typography level="h3" sx={{ color: "#507687" }}>
-          Actividad 2: Hallando la ecuación de un fenómeno variacional
+          Sofía requiere que le ayudes a resolver el siguiente problema:
         </Typography>
+        <Box
+          sx={{
+            backgroundImage: `url(${ImgSofiaPintando})`,
+            backgroundSize: "70%",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            width: "100%",
+            height: "50vh",
+            my: "1rem",
+          }}
+        ></Box>
         <Typography>
-          Una empresa desarrolla un juego para computador. La gráPica muestra la
-          proyección que hizo la empresa acerca de la cantidad de usuarios que
-          tendrá el juego luego de su lanzamiento.
+          🟢 Dibuja cuatro opciones diferentes del cultivo rectangular que puede
+          cercar Sofía, considerando que en cada una se deben usar los 140
+          metros de malla. Asígnenle las longitudes asociadas al ancho y al
+          largo, con su respectiva unidad de medida, para cada una de las cuatro
+          opciones.
         </Typography>
-        <iframe
-          src="https://www.geogebra.org/m/bunrcxbe"
-          frameborder="0"
-          width={"100%"}
-          height={"500px"}
-        ></iframe>
+        <Box sx={{ background: "#FFF1DB", padding: "15px", my: "2rem" }}>
+          <Typography>
+            <span style={{ marginRight: "10px" }}>💡</span> Puedes usar el
+            recuadro de abajo para dibujar usando el mouse, debes pulsar el
+            click izquierdo y mover el mouse para dibujar. Si cometes un error y
+            requieres volver a empezar puedes usar el boton azúl de la parte
+            inferior para limpiar el canvas.
+          </Typography>
+        </Box>
+
+        <ReactSketchCanvas
+          style={{
+            border: "0.0625rem solid #9c9c9c",
+            borderRadius: "0.25rem",
+            height: "400px",
+            width: "100%",
+          }}
+          ref={canvasRef}
+          strokeWidth={2}
+          strokeColor="red"
+        />
+        <Box
+          sx={{
+            background: "#37AFE1",
+            padding: "5px",
+            mt: "2rem",
+            width: "100px",
+            textAlign: "center",
+            color: "#FFFECB",
+            cursor: "pointer",
+          }}
+          onClick={() => {
+            console.log(canvas);
+            canvas.clearCanvas();
+          }}
+        >
+          {" "}
+          Limpiar
+        </Box>
+
+        <Box
+          sx={{
+            mt: "2rem",
+            gap: "20px",
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+          <Box sx={{ width: "100%" }}>
+            <Typography>
+              🟢 ¿Cuáles cantidades varían entre las cuatro opciones?
+            </Typography>
+
+            <Input
+              color="primary"
+              sx={{ height: "50px", mt: "1rem" }}
+              variant="outlined"
+            />
+          </Box>
+          <Box sx={{ width: "100%" }}>
+            <Typography>🟢 ¿Cuáles cantidades no varían?</Typography>
+
+            <Input
+              color="primary"
+              sx={{ height: "50px", mt: "1rem" }}
+              variant="outlined"
+            />
+          </Box>
+        </Box>
+      </CustomTabPanel>
+      <CustomTabPanel value={value} index={3}>
+        <Typography level="h3" sx={{ color: "#507687" }}>
+          Modelando los posibles cultivos rectangulares
+        </Typography>
+        <Box
+          sx={{
+            mt: "2rem",
+            gap: "20px",
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+          <Box sx={{ width: "100%" }}>
+            <Typography>
+              🟢 ¿Cuántas opciones distintas del cultivo rectangular se pueden
+              cercar con los 140 metros de malla? ¿Por qué?
+            </Typography>
+
+            <Input color="primary" sx={{ height: "50px" }} variant="outlined" />
+          </Box>
+        </Box>
+        <Typography sx={{ mt: "2rem" }}>
+          🟢 Dibuja un terreno rectangular cuyas dimensiones no le permitan a
+          Sofía cercarlo con la malla que tiene disponible.
+        </Typography>
+        <Box sx={{ background: "#FFF1DB", padding: "15px", my: "1rem" }}>
+          <Typography>
+            <span style={{ marginRight: "10px" }}>💡</span> Puedes usar el
+            recuadro de abajo para dibujar usando el mouse, debes pulsar el
+            click izquierdo y mover el mouse para dibujar. Si cometes un error y
+            requieres volver a empezar puedes usar el boton azúl de la parte
+            inferior para limpiar el canvas.
+          </Typography>
+        </Box>
+        <ReactSketchCanvas
+          style={{
+            border: "0.0625rem solid #9c9c9c",
+            borderRadius: "0.25rem",
+            height: "400px",
+            width: "100%",
+          }}
+          ref={canvas2Ref}
+          strokeWidth={2}
+          strokeColor="red"
+        />
+        <Box
+          sx={{
+            background: "#37AFE1",
+            padding: "5px",
+            mt: "2rem",
+            width: "100px",
+            textAlign: "center",
+            color: "#FFFECB",
+            cursor: "pointer",
+          }}
+          onClick={() => {
+            canvas2.clearCanvas();
+          }}
+        >
+          {" "}
+          Limpiar
+        </Box>
+        <Typography sx={{ mt: "2rem" }}>
+          🟢 Completa la información presentada en la siguiente tabla:
+        </Typography>
+        <TableContainer
+          sx={{ mt: "2rem", width: "700px", overflow: "hidden" }}
+          component={Paper}
+        >
+          <Table stickyHeader aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <TableCell>Ancho (mt)</TableCell>
+                <TableCell>Largo (mt)</TableCell>
+                <TableCell>Perímetro</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              <TableRow>
+                <TableCell>1</TableCell>
+                <TableCell>
+                  <Input
+                    color="primary"
+                    sx={{ width: "20%" }}
+                    variant="outlined"
+                  />
+                </TableCell>
+                <TableCell>
+                  <Input
+                    color="primary"
+                    sx={{ width: "20%" }}
+                    variant="outlined"
+                  />
+                </TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell>8</TableCell>
+                <TableCell>
+                  <Input
+                    color="primary"
+                    sx={{ width: "20%" }}
+                    variant="outlined"
+                  />
+                </TableCell>
+                <TableCell>
+                  <Input
+                    color="primary"
+                    sx={{ width: "20%" }}
+                    variant="outlined"
+                  />
+                </TableCell>
+              </TableRow>
+
+              <TableRow>
+                <TableCell>14,5</TableCell>
+                <TableCell>
+                  <Input
+                    color="primary"
+                    sx={{ width: "20%" }}
+                    variant="outlined"
+                  />
+                </TableCell>
+                <TableCell>
+                  <Input
+                    color="primary"
+                    sx={{ width: "20%" }}
+                    variant="outlined"
+                  />
+                </TableCell>
+              </TableRow>
+
+              <TableRow>
+                <TableCell>93/4</TableCell>
+                <TableCell>
+                  <Input
+                    color="primary"
+                    sx={{ width: "20%" }}
+                    variant="outlined"
+                  />
+                </TableCell>
+                <TableCell>
+                  <Input
+                    color="primary"
+                    sx={{ width: "20%" }}
+                    variant="outlined"
+                  />
+                </TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell>70</TableCell>
+                <TableCell>
+                  <Input
+                    color="primary"
+                    sx={{ width: "20%" }}
+                    variant="outlined"
+                  />
+                </TableCell>
+                <TableCell>
+                  <Input
+                    color="primary"
+                    sx={{ width: "20%" }}
+                    variant="outlined"
+                  />
+                </TableCell>
+              </TableRow>
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </CustomTabPanel>
+      <CustomTabPanel value={value} index={4}>
+        <Typography level="h3" sx={{ color: "#507687" }}>
+          {" "}
+          Modelando los posibles cultivos rectangulares​
+        </Typography>
+        <Box
+          sx={{
+            mt: "2rem",
+            gap: "20px",
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+          <Box sx={{ width: "100%" }}>
+            <Typography>
+              🟢 Escribe un mensaje de WhatsApp a otro estudiante de su grado,
+              en el cual expliquen con claridad y con todos los detalles
+              posibles cómo proceden para determinar el largo del cultivo
+              rectangular de hortalizas para cualquier ancho del cultivo
+              asignado.
+            </Typography>
+
+            <Input color="primary" sx={{ height: "50px" }} variant="outlined" />
+          </Box>
+          <Box sx={{ width: "100%" }}>
+            <Typography>
+              🟢 Describe rigurosamente el procedimiento utilizado para
+              determinar el largo del cultivo por cada ancho establecido.
+            </Typography>
+
+            <Input
+              color="primary"
+              sx={{ height: "500px" }}
+              variant="outlined"
+            />
+          </Box>
+        </Box>
       </CustomTabPanel>
     </Box>
   );
