@@ -190,7 +190,7 @@ export default function App() {
                 <Box
                   sx={{ mt: "2rem", display: "flex", justifyContent: "end" }}
                 >
-                  <Button variant="soft">Siguiente</Button>
+                  <Button variant="soft">Enviar</Button>
                 </Box>
               </Grid>
             </Grid>
@@ -435,14 +435,24 @@ export default function App() {
           <Table stickyHeader aria-label="simple table">
             <TableHead>
               <TableRow>
-                <TableCell>Ancho (mt)</TableCell>
+                <TableCell sx={{ textAlign: "center" }}>Ancho (mt)</TableCell>
                 <TableCell>Largo (mt)</TableCell>
                 <TableCell>Perímetro</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               <TableRow>
-                <TableCell>1</TableCell>
+                <TableCell>
+                  <Typography
+                    sx={{
+                      width: "250px",
+                      color: "#257180",
+                      textAlign: "center",
+                    }}
+                  >
+                    1
+                  </Typography>{" "}
+                </TableCell>
                 <TableCell>
                   <Input
                     color="primary"
@@ -459,7 +469,17 @@ export default function App() {
                 </TableCell>
               </TableRow>
               <TableRow>
-                <TableCell>8</TableCell>
+                <TableCell>
+                  <Typography
+                    sx={{
+                      width: "250px",
+                      color: "#257180",
+                      textAlign: "center",
+                    }}
+                  >
+                    8
+                  </Typography>
+                </TableCell>
                 <TableCell>
                   <Input
                     color="primary"
@@ -477,7 +497,17 @@ export default function App() {
               </TableRow>
 
               <TableRow>
-                <TableCell>14,5</TableCell>
+                <TableCell>
+                  <Typography
+                    sx={{
+                      width: "250px",
+                      color: "#257180",
+                      textAlign: "center",
+                    }}
+                  >
+                    14,5
+                  </Typography>
+                </TableCell>
                 <TableCell>
                   <Input
                     color="primary"
@@ -495,7 +525,17 @@ export default function App() {
               </TableRow>
 
               <TableRow>
-                <TableCell>93/4</TableCell>
+                <TableCell>
+                  <Typography
+                    sx={{
+                      width: "250px",
+                      color: "#257180",
+                      textAlign: "center",
+                    }}
+                  >
+                    93/4
+                  </Typography>
+                </TableCell>
                 <TableCell>
                   <Input
                     color="primary"
@@ -512,7 +552,17 @@ export default function App() {
                 </TableCell>
               </TableRow>
               <TableRow>
-                <TableCell>70</TableCell>
+                <TableCell>
+                  <Typography
+                    sx={{
+                      width: "250px",
+                      color: "#257180",
+                      textAlign: "center",
+                    }}
+                  >
+                    70
+                  </Typography>
+                </TableCell>
                 <TableCell>
                   <Input
                     color="primary"
